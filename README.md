@@ -4,8 +4,10 @@ Browser-ready jsc3l implementation
 
 ## Usage
 
-The package ``jsc3l-browser-test`` have nice example of a typical
-usage of this package. You should probably have a glance at it.
+The package ``jsc3l-browser-test`` that you can find
+[here](https://github.com/com-chain/jsc3l-browser-test) have nice
+example of a typical usage of this package. You should probably have a
+glance at it.
 
 ## Developers
 
