@@ -1,6 +1,6 @@
 {
   "name": "@com-chain/jsc3l-browser",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Browser interface to the JavaScript Com-Chain Communication Library",
   "main": "build/index.js",
   "scripts": {
@@ -34,6 +34,6 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.15.4",
-    "@com-chain/jsc3l": "2.0.1-rc.0"
+    "@com-chain/jsc3l": "^2.0.1-rc"
   }
 }
