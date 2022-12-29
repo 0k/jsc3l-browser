@@ -52,11 +52,9 @@ export default class Jsc3l extends AbstractJsc3l {
           }
           data = parsedData
         }
-        if (this.status === 0) {
-          reject(new Error('Invalid request'))
-          return
-        }
-        if (this.status.toString().slice(0, 1) !== '2') {
+
+        // In local files, status is 0 upon success in Mozilla Firefox
+        if (this.status !== 0 && this.status.toString().slice(0, 1) !== '2') {
           reject(new Error(`Request failed with status ${this.status}`))
           return
         }
@@ -64,7 +62,12 @@ export default class Jsc3l extends AbstractJsc3l {
         resolve(data)
       }
       xhttp.open(method, url, true)
-      if (opts?.timeout) xhttp.timeout = opts.timeout
+      if (opts?.timeout) {
+        xhttp.timeout = opts.timeout
+        xhttp.ontimeout = () => {
+          reject(new Error(`Request timed out (${opts.timeout}ms)`))
+        }
+      }
       if (opts?.headers) {
         for (const label in headers) {
           xhttp.setRequestHeader(label, opts.headers[label])
